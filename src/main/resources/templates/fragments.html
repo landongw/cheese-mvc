@@ -7,9 +7,14 @@
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
 </head>
 <body>
-    <nav th:fragment="navigation">
-        <a href="/cheese">List</a>
-        <a href="/cheese/add">Add</a>
-    </nav>
+    <header th:fragment="navigation">
+        <div class="main-header">
+        <a href="/cheese"><img th:src="@{/images/no-logo.png}" class="logo"/></a>
+        <nav class="main-nav">
+            <a href="/cheese" class="menu-item">List Cheeses</a>
+            <a href="/cheese/add" class="menu-item">Add Cheese</a>
+        </nav>
+        </div>
+    </header>
 </body>
 </html>

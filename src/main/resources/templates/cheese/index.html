@@ -2,14 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-    <h1 th:text="${title}">Default Title</h1>
     <nav th:replace="fragments :: navigation"></nav>
-    <p th:unless="${cheeses} and ${cheeses.size()}">
-        no cheese and size of ArrayList not zero :(
-    </p>
-    <ul th:each="cheese : ${cheeses}">
-        <li th:text="${cheese.key}"></li>
-        <p th:text="${cheese.value}" style="font-size: .75em;"></p>
-    </ul>
+    <section class="row">
+        <div class="col">
+            <h1 th:text="${title}">Default Title</h1>
+            <p th:unless="${cheeses} and ${cheeses.size()}">
+                no cheese and size of ArrayList not zero :(
+            </p>
+            <ul th:each="cheese : ${cheeses}">
+                <li th:text="${cheese.key}"></li>
+                <p th:text="${cheese.value}" class="cheese-description"></p>
+            </ul>
+        </div>
+    </section>
 </body>
 </html>
