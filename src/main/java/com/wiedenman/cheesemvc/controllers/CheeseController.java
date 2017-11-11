@@ -1,13 +1,12 @@
 package com.wiedenman.cheesemvc.controllers;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *  Landon Wiedenman
@@ -16,7 +15,8 @@ import java.util.ArrayList;
 @RequestMapping("cheese")  // Specifies that every following controller will be proceeded with this
 public class CheeseController {
 
-    static ArrayList<String> cheeses = new ArrayList<>();  // This is a static member of the cheese controller
+    //static ArrayList<String> cheeses = new ArrayList<>();  // This is a static member of the cheese controller
+    static HashMap<String, String> cheeses = new HashMap<>();
 
     // Request path: /cheese
     @RequestMapping(value = "")
@@ -44,9 +44,12 @@ public class CheeseController {
 //    }
 
     @RequestMapping(value = "add", method = RequestMethod.POST) // Process form
-    public String processAddCheeseForm(@RequestParam String cheeseName) {
+    public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String cheeseDescription) {
 
-        cheeses.add(cheeseName); // Adds cheese passed in from /add form
+//        String cheeseName = requestParams.get("cheeseName");
+//        String cheeseDescription = requestParams.get("cheeseDescription");
+
+        cheeses.put(cheeseName, cheeseDescription); // Adds cheese passed in from /cheese/add form
         return "redirect:"; // Redirects to root (/cheese)
     }
 }

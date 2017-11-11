@@ -7,8 +7,9 @@
     <p th:unless="${cheeses} and ${cheeses.size()}">
         no cheese and size of ArrayList not zero :(
     </p>
-    <ul>
-        <li th:each="cheese : ${cheeses}" th:text="${cheese}"></li>
+    <ul th:each="cheese : ${cheeses}">
+        <li th:text="${cheese.key}"></li>
+        <p th:text="${cheese.value}" style="font-size: .75em;"></p>
     </ul>
 </body>
 </html>
