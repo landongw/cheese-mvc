@@ -105,8 +105,8 @@ header {
     font-family: 'Open Sans' Arial, sans-serif;
     font-weight: 300;
     color: lightgrey;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 0;
+    padding-right: 0;
     display: block;
 }
 
@@ -240,6 +240,11 @@ footer {
         opacity: .8;
     }
 
+    .menu-item {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
     body {
         padding-top: 138px;
     }
@@ -278,6 +283,11 @@ footer {
     .main-header {
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .menu-item {
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
     body {
