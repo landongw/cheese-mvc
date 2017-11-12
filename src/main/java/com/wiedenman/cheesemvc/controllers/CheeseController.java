@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class CheeseController {
 
     //static ArrayList<String> cheeses = new ArrayList<>();  // This is a static member of the cheese controller
-    static HashMap<String, String> cheeses = new HashMap<>();
+    static HashMap<Object, Object> cheeses = new HashMap<>();
 
     // Request path: /cheese
     @RequestMapping(value = "")

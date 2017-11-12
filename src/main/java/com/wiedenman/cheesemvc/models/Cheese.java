@@ -3,9 +3,9 @@ package com.wiedenman.cheesemvc.models;
 public class Cheese {
 
     private static int nextCheeseId = 1;
-    public static String cheeseName;
+    private static String cheeseName;
     private final int cheeseId;
-    public static String cheeseDescription;
+    private static String cheeseDescription;
 
     public Cheese(String cheeseName, int cheeseId,
                   String cheeseDescription) {
