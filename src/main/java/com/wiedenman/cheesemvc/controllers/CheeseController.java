@@ -12,7 +12,7 @@ import java.util.HashMap;
  *  Landon Wiedenman
  */
 @Controller
-@RequestMapping("cheese")  // Specifies that every following controller will be proceeded with this
+@RequestMapping("cheese")  // Specifies that every following controller will be prepended with this
 public class CheeseController {
 
     //static ArrayList<String> cheeses = new ArrayList<>();  // This is a static member of the cheese controller
