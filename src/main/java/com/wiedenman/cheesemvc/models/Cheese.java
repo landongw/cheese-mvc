@@ -42,6 +42,6 @@ public class Cheese {
     }
 
     public void setCheeseDescription(String cheeseDescription) {
-        cheeseDescription = cheeseDescription;  // TODO: Does this need to be preceeded by this.?
+        cheeseDescription = cheeseDescription;  // TODO: Does this need to be prepended by this.?
     }
 }

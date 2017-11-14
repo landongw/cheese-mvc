@@ -34,7 +34,6 @@ public class CheeseController {
         return "cheese/add";
     }
 
-
 //    Use parameters with HttpServletRequest method
 
 //    @RequestMapping(value = "add", method = RequestMethod.POST) // Process form
@@ -52,4 +51,18 @@ public class CheeseController {
         cheeses.put(cheeseName, cheeseDescription); // Adds cheese passed in from /cheese/add form
         return "redirect:"; // Redirects to root (/cheese)
     }
+
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveCheeseForm(Model model) {
+        model.addAttribute("title", "Remove Cheese");
+        model.addAttribute("cheeses", cheeses);
+        return "cheese/remove";
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveCheeseForm(@RequestParam String cheeseKey) {
+        cheeses.remove(cheeseKey);
+        return "redirect:";
+    }
+
 }
