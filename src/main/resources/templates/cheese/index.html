@@ -3,11 +3,11 @@
 <head th:replace="fragments :: head"></head>
 <body>
     <nav th:replace="fragments :: navigation"></nav>
-    <section class="row">
-        <div class="col">
+    <section class="Lrow">
+        <div class="Lcol">
             <h1 th:text="${title}">Default Title</h1>
             <p th:unless="${cheeses} and ${cheeses.size()}">
-                No cheese found.  :( <a href="/cheese/add">Add some cheese now.</a>
+                No cheese found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/cheese/add">Add some cheese now.</a>
             </p>
             <ul th:each="cheese : ${cheeses}">
                 <li th:text="${cheese.key}"></li>

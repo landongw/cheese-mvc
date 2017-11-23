@@ -122,6 +122,8 @@ header {
 
 /* layout containers */
 
+
+
 .banner {
     box-shadow: inset 0px 0px 500px black;
     display: flex;
@@ -143,7 +145,7 @@ header {
     justify-content: center;
 }
 
-.col {
+.Lcol {
     padding: 1em;
 }
 
@@ -186,11 +188,6 @@ label {
     display: block;
 }
 
-.checkbox {
-    width: unset;
-    height: unset;
-}
-
 input {
     width: 100%;
     height: 50px;
@@ -199,6 +196,13 @@ input {
     border-radius: 4px;
     position: relative;
     top: -2px;
+}
+
+.Lcheckbox {
+    display: inline-block;
+    width: unset;
+    height: unset;
+    margin: 10px 10px 10px 10px !important;
 }
 
 textarea {
@@ -215,7 +219,7 @@ button {
     font-size: 1.1em;
     margin: 25px 0 25px 0;
     padding: 10px;
-    background: white;
+    background: orange;
     border: 2px solid black;
     border-radius: 4px;
 }
@@ -240,7 +244,7 @@ footer {
 
 @media (min-width: 769px) {
 	.main-header,
-	.row {
+	.Lrow {
 		width: 80%;
         margin: 0 auto;
 		max-width: 1150px;
@@ -273,7 +277,7 @@ footer {
 
     .main-header,
     .main-nav,
-    .row {
+    .Lrow {
         display: flex;
     }
 
@@ -282,7 +286,7 @@ footer {
         align-items: center;
     }
 
-    .col {
+    .Lcol {
         flex: 1;
     }
 
