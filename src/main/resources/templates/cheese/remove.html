@@ -9,8 +9,8 @@
             <form method="POST">
                 <div th:each="cheese : ${cheeses}">
                     <input type="checkbox" name="cheeseKey" class="Lcheckbox" th:value="${cheese.key}"/>
-                    <label th:text="${cheese.value.cheeseName}" style="color: orange;"></label>
-                    <span>&nbsp;&nbsp;</span><span th:text="${cheese.value.cheeseDescription}"></span>
+                    <label th:text="${cheese.value.name}" style="color: orange;"></label>
+                    <span>&nbsp;&nbsp;</span><span th:text="${cheese.value.description}"></span>
                 </div>
                 <br />
                 <button type="submit" value="Remove Cheese">Remove Cheese</button>

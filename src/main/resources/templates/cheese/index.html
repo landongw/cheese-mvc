@@ -10,8 +10,8 @@
                 No cheese found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/cheese/add">Add some cheese now.</a>
             </p>
             <ul th:each="cheese : ${cheeses}">
-                <li th:text="${cheese.value.cheeseName}"></li>
-                <p th:text="${cheese.value.cheeseDescription}" class="cheese-description"></p>
+                <li th:text="${cheese.value.name}"></li>
+                <p th:text="${cheese.value.description}" class="cheese-description"></p>
             </ul>
         </div>
     </section>

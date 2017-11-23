@@ -210,6 +210,10 @@ input {
     top: -1px;
 }
 
+.Lcheckbox + label {
+    padding-top: 0;
+}
+
 .Lcheckbox {
     display: inline-block;
     width: unset;

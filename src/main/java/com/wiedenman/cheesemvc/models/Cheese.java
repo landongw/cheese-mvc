@@ -2,46 +2,66 @@ package com.wiedenman.cheesemvc.models;
 
 public class Cheese {
 
+    private int id;
     private static int nextCheeseId = 1;
-    private String cheeseName;
-    private final int cheeseId;
-    private String cheeseDescription;
+    private String name;
+    private String description;
 
-    public Cheese(String cheeseName, int cheeseId,
-                  String cheeseDescription) {
-
-        this.cheeseName = cheeseName;
-        this.cheeseId = cheeseId;
-        this.cheeseDescription = cheeseDescription;
+    public Cheese(String name, String description) {
+        this();
+        this.name = name;
+        this.description = description;
     }
 
-    public Cheese(String cheeseName, String cheeseDescription) {
-
-        this(cheeseName, nextCheeseId++, cheeseDescription);
+    public Cheese() {
+        id = nextCheeseId++;
     }
 
-    public String getCheeseName() {
-        return cheeseName;
+    public int getId() {
+        return id;
     }
 
-    public void setCheeseName(String aCheeseName) {
-        cheeseName = aCheeseName;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Integer getCheeseId() {
-        return cheeseId;
+    public String getName() {
+        return name;
     }
 
-//    private void setCheesId(Integer aCheeseId) {  // TODO: Figure out what to do with setId
-//        cheeseId = aCheeseId;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    //    public String getCheeseName() {
+//        return name;
 //    }
-
-
-    public String getCheeseDescription() {
-        return cheeseDescription;
-    }
-
-    public void setCheeseDescription(String cheeseDescription) {
-        cheeseDescription = cheeseDescription;  // TODO: Does this need to be prepended by this.?
-    }
+//
+//    public void setCheeseName(String aCheeseName) {
+//        name = aCheeseName;
+//    }
+//
+//    public Integer getCheeseId() {
+//        return id;
+//    }
+//
+//    private void setCheesId(Integer aCheeseId) {  // TODO: Figure out what to do with setId
+//        id = aCheeseId;
+//    }
+//
+//
+//    public String getCheeseDescription() {
+//        return description;
+//    }
+//
+//    public void setCheeseDescription(String adescription) {
+//        description = adescription;
+//    }
 }
