@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: navigation"></nav>
+<section class="Lrow">
+    <div class="Lcol">
+        <h1 th:text="${title}">Default Title</h1>
+
+        <h1><span>Edit Cheese:  </span><span th:text="${cheese.getName()}"></span><span> (id=</span><span th:text="${cheese.getId()}"></span><span>)</span></h1>
+        <form method="POST" action="/cheese/edit">
+            <input type="hidden" name="id" th:value="${cheese.getId()}"/>
+            <label>Cheese Name: </label>
+            <input type="text" name="name" th:value="${cheese.getName()}"/>
+            <label>Description: </label>
+            <input type="text" name="description" th:value="${cheese.getDescription()}"/>
+            <br />
+            <br />
+            <button type="submit" value="Edit Cheese">Edit Cheese</button>
+        </form>
+    </div>
+</section>
+<footer>Copyright &copy; 2017 Landon Wiedenman</footer>
+</body>
+</html>

@@ -12,6 +12,7 @@
             <ul th:each="cheese : ${cheeses}">
                 <li th:text="${cheese.value.name}"></li>
                 <p th:text="${cheese.value.description}" class="cheese-description"></p>
+                <a th:href="@{'/cheese/edit/' + ${cheese.key}}" class="edit">edit</a>
             </ul>
         </div>
     </section>

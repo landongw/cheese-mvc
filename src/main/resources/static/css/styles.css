@@ -193,6 +193,10 @@ header {
     color: red;
 }
 
+.edit {
+    font-size: .7em;
+}
+
 label {
     padding-top: 25px;
     padding-bottom: 10px;
