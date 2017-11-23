@@ -1,5 +1,6 @@
 package com.wiedenman.cheesemvc.controllers;
 
+import com.wiedenman.cheesemvc.models.Cheese;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 public class CheeseController {
 
     //static ArrayList<String> cheeses = new ArrayList<>();  // This is a static member of the cheese controller
-    static HashMap<Object, Object> cheeses = new HashMap<>();
+    static HashMap<Integer, Cheese> cheeses = new HashMap<>();
 
     // Request path: /cheese
     @RequestMapping(value = "")
@@ -49,7 +50,8 @@ public class CheeseController {
 //        String cheeseName = requestParams.get("cheeseName");
 //        String cheeseDescription = requestParams.get("cheeseDescription");
 
-        cheeses.put(cheeseName, cheeseDescription); // Adds cheese passed in from /cheese/add form
+        Cheese newCheese = new Cheese(cheeseName, cheeseDescription);
+        cheeses.put(newCheese.getCheeseId(), newCheese); // Adds cheese passed in from /cheese/add form
         return "redirect:"; // Redirects to root (/cheese)
     }
 
@@ -61,9 +63,9 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveCheeseForm(@RequestParam ArrayList<String> cheeseKey) {
+    public String processRemoveCheeseForm(@RequestParam ArrayList<Integer> cheeseKey) {
 
-            for (String aCheese : cheeseKey) {
+            for (Integer aCheese : cheeseKey) {
                 cheeses.remove(aCheese);
             }
 

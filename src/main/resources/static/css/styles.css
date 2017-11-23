@@ -95,9 +95,16 @@ header {
 }
 
 .logo {
-    width: 100px;
-    padding-top: 5px;
-    filter: invert(100%);
+    width: 40px;
+    margin: 10px;
+    filter: invert(0%);
+
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
 }
 
 .main-nav {
@@ -195,7 +202,7 @@ input {
     padding: 10px;
     border-radius: 4px;
     position: relative;
-    top: -2px;
+    top: -1px;
 }
 
 .Lcheckbox {
