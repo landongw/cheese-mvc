@@ -6,11 +6,25 @@
     <section class="Lrow">
         <div class="Lcol">
             <h1 th:text="${title}">Default Title</h1>
-            <form method="POST">
-                <label>Cheese Name: </label>
-                <input type="text" name="name" />
-                <label>Description: </label>
-                <input type="text" name="description" />
+            <form method="POST" th:object="${cheese}">
+                <div>
+                    <label th:for="name">Cheese Name: </label>
+                    <input th:field="*{name}"/>
+                    <span th:errors="*{name}" class="error"></span>
+                </div>
+                <div>
+                    <label th:for="description">Description: </label>
+                    <input th:field="*{description}"/>
+                    <span th:errors="*{description}" class="error"></span>
+                </div>
+                <div>
+                    <div><label th:for="type">Type:</label></div>
+                    <select th:field="*{type}">
+                        <option th:each="cheeseType : ${cheeseTypes}"
+                            th:text="${cheeseType.name}"
+                            th:value="${cheeseType}"></option>
+                    </select>
+                </div>
                 <br />
                 <br />
                 <button type="submit" value="Add Cheese">Add Cheese</button>

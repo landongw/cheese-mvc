@@ -2,12 +2,14 @@ package com.wiedenman.cheesemvc.controllers;
 
 import com.wiedenman.cheesemvc.models.Cheese;
 import com.wiedenman.cheesemvc.models.CheeseData;
+import com.wiedenman.cheesemvc.models.CheeseType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *  Landon Wiedenman
@@ -29,21 +31,20 @@ public class CheeseController {
     @RequestMapping(value = "add", method = RequestMethod.GET)  // Displays form
     public String displayAddCheeseForm(Model model) {
         model.addAttribute("title", "Add Cheese");
+        model.addAttribute(new Cheese());
+        model.addAttribute("cheeseTypes", CheeseType.values());
         return "cheese/add";
     }
 
 
     @RequestMapping(value = "add", method = RequestMethod.POST) // Process form
-    public String processAddCheeseForm(@ModelAttribute Cheese newCheese) {
+    public String processAddCheeseForm(@ModelAttribute @Valid Cheese newCheese,
+                                       Errors errors, Model model) {
 
-        /*
-        *  THIS IS WHAT RUNS IMPLICITLY FROM @ModelAttribute  (AUTOBINDING)
-        *
-        *  Cheese newCheese = new Cheese();
-        *  newCheese.setName(Request.getParameter("name"));
-        *  newCheese.setDescription(Request.getParameter("description"));
-        *
-        * */
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Cheese");
+            return "cheese/add";
+        }
 
         CheeseData.put(newCheese.getId(), newCheese); // Adds cheese passed in from /cheese/add form
         return "redirect:"; // Redirects to root (/cheese)
@@ -71,7 +72,6 @@ public class CheeseController {
     public String displayEditForm(Model model, @PathVariable int id) {
 
         Cheese cheeseToEdit = CheeseData.getById(id);
-
         model.addAttribute("cheese", cheeseToEdit);
         return "cheese/edit";
     }

@@ -1,11 +1,22 @@
 package com.wiedenman.cheesemvc.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Cheese {
 
     private int id;
     private static int nextCheeseId = 1;
+
+    @NotNull
+    @Size(min=3, max=20, message = "Name must be between 3 and 20 characters.")
     private String name;
+
+    @NotNull
+    @Size(min=1, message = "Desciption required.")
     private String description;
+
+    private CheeseType type;
 
     public Cheese(String name, String description) {
         this();
@@ -40,28 +51,12 @@ public class Cheese {
     public void setDescription(String description) {
         this.description = description;
     }
-    //    public String getCheeseName() {
-//        return name;
-//    }
-//
-//    public void setCheeseName(String aCheeseName) {
-//        name = aCheeseName;
-//    }
-//
-//    public Integer getCheeseId() {
-//        return id;
-//    }
-//
-//    private void setCheesId(Integer aCheeseId) {  // TODO: Figure out what to do with setId
-//        id = aCheeseId;
-//    }
-//
-//
-//    public String getCheeseDescription() {
-//        return description;
-//    }
-//
-//    public void setCheeseDescription(String adescription) {
-//        description = adescription;
-//    }
+
+    public CheeseType getType() {
+        return type;
+    }
+
+    public void setType(CheeseType type) {
+        this.type = type;
+    }
 }
