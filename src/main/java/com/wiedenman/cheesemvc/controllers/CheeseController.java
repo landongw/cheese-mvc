@@ -71,7 +71,6 @@ public class CheeseController {
     public String displayEditForm(Model model, @PathVariable int id) {
 
         Cheese cheeseToEdit = CheeseData.getById(id);
-
         model.addAttribute("cheese", cheeseToEdit);
         return "cheese/edit";
     }
