@@ -54,9 +54,14 @@ li {
     color: orange;
 }
 
+a:hover, a:focus {
+    color: #D2902F !important;
+    text-decoration: none !important;
+}
+
 a {
-    text-decoration: none;
-    color: darkred;
+    color: orange !important;
+    text-decoration: none!important;
 }
 
 img {
@@ -115,14 +120,14 @@ header {
 .menu-item {
     font-family: 'Open Sans' Arial, sans-serif;
     font-weight: 300;
-    color: lightgrey;
+    color: lightgrey !important;
     padding-left: 0;
     padding-right: 0;
     display: block;
 }
 
 .menu-item:hover {
-    color: white;
+    color: white !important;
 }
 
 
@@ -234,14 +239,19 @@ button {
 /* footer */
 
 footer {
-    height: 100px;
     background-color: black;
-    color: white;
-    font-weight: 100;
+    color: lightgrey;
+    font-size: .7em;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 10px;
 }
 
 
