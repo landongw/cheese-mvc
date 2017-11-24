@@ -10,7 +10,8 @@
                 <div th:each="cheese : ${cheeses}">
                     <input type="checkbox" name="cheeseKey" class="Lcheckbox" th:value="${cheese.key}"/>
                     <label th:text="${cheese.value.name}" style="color: orange;"></label>
-                    <span>&nbsp;&nbsp;</span><span th:text="${cheese.value.description}"></span>
+                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><span th:text="${cheese.value.type.name}"></span>
+                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><span th:text="${cheese.value.description}"></span>
                 </div>
                 <br />
                 <button type="submit" value="Remove Cheese">Remove Cheese</button>

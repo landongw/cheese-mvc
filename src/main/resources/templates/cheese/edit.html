@@ -8,12 +8,27 @@
         <h1 th:text="${title}">Default Title</h1>
 
         <h1><span>Edit Cheese:  </span><span th:text="${cheese.getName()}"></span><span> (id=</span><span th:text="${cheese.getId()}"></span><span>)</span></h1>
-        <form method="POST" action="/cheese/edit">
-            <input type="hidden" name="id" th:value="${cheese.getId()}"/>
-            <label>Cheese Name: </label>
-            <input type="text" name="name" th:value="${cheese.getName()}"/>
-            <label>Description: </label>
-            <input type="text" name="description" th:value="${cheese.getDescription()}"/>
+        <form method="POST" action="/cheese/edit" th:object="${cheese}">
+            <div>
+                <input type="hidden" name="id" th:value="${cheese.getId()}"/>
+                <label th:for="name">Cheese Name: </label>
+                <input th:field="*{name}" th:value="${cheese.getName()}"/>
+                <span th:errors="*{name}" class="error"></span>
+            </div>
+            <div>
+                <label th:for="description">Description: </label>
+                <input th:field="*{description}" th:value="${cheese.getDescription()}"/>
+                <span th:errors="*{description}" class="error"></span>
+            </div>
+            <div>
+                <div><label th:for="type">Type:</label></div>
+                <select th:field="*{type}">
+                    <option th:each="cheeseType : ${cheeseTypes}"
+                            th:text="${cheeseType.name}"
+                            th:value="${cheeseType}"
+                            th:selected="${cheese.getType()}"></option>
+                </select>
+            </div>
             <br />
             <br />
             <button type="submit" value="Edit Cheese">Edit Cheese</button>
