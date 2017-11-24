@@ -6,13 +6,16 @@
     <section class="Lrow">
         <div class="Lcol">
             <h1 th:text="${title}">Default Title</h1>
+            <hr/>
             <p th:unless="${cheeses} and ${cheeses.size()}">
                 No cheese found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/cheese/add">Add some cheese now.</a>
             </p>
             <ul th:each="cheese : ${cheeses}">
-                <li th:text="${cheese.value.name}"></li>
-                <p th:text="${cheese.value.description}" class="cheese-description"></p>
+                <h3 th:text="${cheese.value.name}"></h3>
+                <span>Description:&nbsp;&nbsp;</span><span th:text="${cheese.value.description}" class="cheese-description"></span><br/>
+                <span>Type:&nbsp;&nbsp;</span><span th:text="${cheese.value.type.name}"></span><br/>
                 <a th:href="@{'/cheese/edit/' + ${cheese.key}}" class="edit">edit</a>
+                <hr/>
             </ul>
         </div>
     </section>

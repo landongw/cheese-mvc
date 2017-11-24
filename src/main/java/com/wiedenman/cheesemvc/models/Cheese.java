@@ -8,12 +8,12 @@ public class Cheese {
     private int id;
     private static int nextCheeseId = 1;
 
-    @NotNull
-    @Size(min=3, max=20, message = "Name must be between 3 and 20 characters.")
+//    @NotNull
+//    @Size(min=3, max=20, message = "Name must be between 3 and 20 characters.")
     private String name;
 
-    @NotNull
-    @Size(min=1, message = "Desciption required.")
+//    @NotNull
+//    @Size(min=1, message = "Desciption required.")
     private String description;
 
     private CheeseType type;
