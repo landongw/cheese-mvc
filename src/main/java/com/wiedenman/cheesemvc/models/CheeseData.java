@@ -24,7 +24,6 @@ public class CheeseData {
         cheeses.remove(id);
     }
 
-
     // getById
     public static Cheese getById(int id) {
 

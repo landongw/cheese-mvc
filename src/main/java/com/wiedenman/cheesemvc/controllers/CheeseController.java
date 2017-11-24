@@ -2,6 +2,7 @@ package com.wiedenman.cheesemvc.controllers;
 
 import com.wiedenman.cheesemvc.models.Cheese;
 import com.wiedenman.cheesemvc.models.CheeseData;
+import com.wiedenman.cheesemvc.models.CheeseRating;
 import com.wiedenman.cheesemvc.models.CheeseType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +34,7 @@ public class CheeseController {
         model.addAttribute("title", "Add Cheese");
         model.addAttribute(new Cheese());
         model.addAttribute("cheeseTypes", CheeseType.values());
+        model.addAttribute("cheeseRatings", CheeseRating.values());
         return "cheese/add";
     }
 
@@ -43,6 +45,8 @@ public class CheeseController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Cheese");
+            model.addAttribute("cheeseTypes", CheeseType.values());
+            model.addAttribute("cheeseRatings", CheeseRating.values());
             return "cheese/add";
         }
 
@@ -74,28 +78,27 @@ public class CheeseController {
         Cheese cheeseToEdit = CheeseData.getById(id);
         model.addAttribute("cheese", cheeseToEdit);
         model.addAttribute("cheeseTypes", CheeseType.values());
-
+        model.addAttribute("cheeseRatings", CheeseRating.values());
         return "cheese/edit";
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.POST)
-    public String processEditForm(@ModelAttribute @Valid Cheese newCheese,
-                                  @RequestParam int id,
-                                  @RequestParam String name,
-                                  @RequestParam String description,
-                                  @RequestParam CheeseType type,
+    public String processEditForm(@ModelAttribute @Valid Cheese cheeseToEdit,
                                   Errors errors,
                                   Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Edit Cheese");
+            model.addAttribute("edit cheese", cheeseToEdit);
+            model.addAttribute("cheeseTypes", CheeseType.values());
+            model.addAttribute("cheeseRatings", CheeseRating.values());
             return "cheese/edit";
         }
 
-        CheeseData.getById(id).setName(name);
-        CheeseData.getById(id).setDescription(description);
-        CheeseData.getById(id).setType(type);
-//        CheeseData.put(newCheese.getId(), newCheese); // Adds cheese passed in from /cheese/add form
+        Cheese editedCheese = CheeseData.getById(cheeseToEdit.getId());
+        editedCheese.setName(cheeseToEdit.getName());
+        editedCheese.setDescription(cheeseToEdit.getDescription());
+        editedCheese.setType(cheeseToEdit.getType());
+        editedCheese.setRating(cheeseToEdit.getRating());
         return "redirect:";
     }
 

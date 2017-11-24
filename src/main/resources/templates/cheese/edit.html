@@ -29,6 +29,15 @@
                             th:selected="${cheese.getType()}"></option>
                 </select>
             </div>
+            <div>
+                <div><label th:for="rating">Rating:</label></div>
+                <select th:field="*{rating}">
+                    <option th:each="cheeseRating : ${cheeseRatings}"
+                            th:text="${cheeseRating.stars}"
+                            th:value="${cheeseRating}"></option>
+                </select>
+                <span th:errors="*{rating}" class="error"></span>
+            </div>
             <br />
             <br />
             <button type="submit" value="Edit Cheese">Edit Cheese</button>

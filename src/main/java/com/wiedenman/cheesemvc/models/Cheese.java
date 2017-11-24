@@ -8,20 +8,25 @@ public class Cheese {
     private int id;
     private static int nextCheeseId = 1;
 
-//    @NotNull
-//    @Size(min=3, max=20, message = "Name must be between 3 and 20 characters.")
+    @NotNull
+    @Size(min=3, max=20, message = "Name must be between 3 and 20 characters.")
     private String name;
 
-//    @NotNull
-//    @Size(min=1, message = "Desciption required.")
+    @NotNull
+    @Size(min=1, message = "Desciption required.")
     private String description;
 
+    @NotNull(message = "Please select a cheese type.")
     private CheeseType type;
 
-    public Cheese(String name, String description) {
+    @NotNull(message = "Please rate your cheese.")
+    private CheeseRating rating;
+
+    public Cheese(String name, String description, CheeseRating rating) {
         this();
         this.name = name;
         this.description = description;
+        this.rating = rating;
     }
 
     public Cheese() {
@@ -58,5 +63,15 @@ public class Cheese {
 
     public void setType(CheeseType type) {
         this.type = type;
+    }
+
+    public void setRating(CheeseRating rating) {
+
+        this.rating = rating;
+    }
+
+    public CheeseRating getRating() {
+
+        return rating;
     }
 }

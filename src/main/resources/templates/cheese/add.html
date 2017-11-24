@@ -21,9 +21,19 @@
                     <div><label th:for="type">Type:</label></div>
                     <select th:field="*{type}">
                         <option th:each="cheeseType : ${cheeseTypes}"
-                            th:text="${cheeseType.name}"
-                            th:value="${cheeseType}"></option>
+                                th:text="${cheeseType.name}"
+                                th:value="${cheeseType}"></option>
                     </select>
+                    <span th:errors="*{type}" class="error"></span>
+                </div>
+                <div>
+                    <div><label th:for="rating">Rating:</label></div>
+                    <select th:field="*{rating}">
+                        <option th:each="cheeseRating : ${cheeseRatings}"
+                                th:text="${cheeseRating.stars}"
+                                th:value="${cheeseRating}"></option>
+                    </select>
+                    <span th:errors="*{rating}" class="error"></span>
                 </div>
                 <br />
                 <br />
