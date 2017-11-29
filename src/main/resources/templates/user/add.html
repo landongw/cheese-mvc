@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
 <body>
-
+    <nav th:replace="fragments :: navigation"></nav>
+    <section class="Lrow">
+        <div class="Lcol">
+            <h1 th:text="${title}">Default Title</h1>
+            <form method="POST" th:object="${user}">
+                <div>
+                    <label th:for="username">UserName: </label>
+                    <input th:field="*{username}"/>
+                    <span th:errors="*{username}" class="error"></span>
+                </div>
+                <div>
+                    <label th:for="email">Email: </label>
+                    <input th:field="*{email}"/>
+                    <span th:errors="*{email}" class="error"></span>
+                </div>
+                <div>
+                    <label th:for="password">Password: </label>
+                    <input th:type="password" th:field="*{password}"/>
+                    <span th:errors="*{password}" class="error"></span>
+                </div>
+                <div>
+                    <label th:for="password">Verify Password: </label>
+                    <input th:type="password" th:field="*{password}"/>
+                    <span th:errors="*{password}" class="error"></span>
+                </div>
+                <br />
+                <br />
+                <button type="submit" value="Add Cheese">Add Cheese</button>
+            </form>
+            <div style="height: 50px;"></div>
+        </div>
+    </section>
+    <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>
