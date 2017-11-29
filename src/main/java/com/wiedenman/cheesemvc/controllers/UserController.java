@@ -1,12 +1,11 @@
 package com.wiedenman.cheesemvc.controllers;
 
-import com.wiedenman.cheesemvc.models.CheeseData;
-import com.wiedenman.cheesemvc.models.User;
-import com.wiedenman.cheesemvc.models.UserData;
+import com.wiedenman.cheesemvc.models.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,6 +24,14 @@ public class UserController {
         model.addAttribute("title", "Cheesy Users");
 
         return "user/index";
+    }
+
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    public String singleUser(Model model, @PathVariable int id) {
+
+        User user = UserData.getById(id);
+        model.addAttribute("user", user);
+        return "user/single";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)  // Displays form

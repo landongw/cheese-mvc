@@ -7,13 +7,11 @@
     <div class="Lcol">
         <h1 th:text="${title}">Default Title</h1>
         <hr/>
-        <p th:unless="${users} and ${users.size()}">
-            No users found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/user/add">Add a user now.</a>
+        <p th:unless="${user}">
+            User not found.
         </p>
-        <ul th:each="user : ${users}">
-            <a th:href="'/user/' + ${user.key}"><h3 th:text="${user.value.username}"></h3></a>
-            <hr/>
-        </ul>
+        <h3 th:text="${user.getUsername()}"></h3>
+        <h5 th:text="${user.getEmail()}"></h5>
     </div>
 </section>
 <footer th:replace="fragments :: footer"></footer>

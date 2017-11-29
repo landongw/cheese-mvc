@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class User {
-    private static int nextId = 1;
+    private static int nextId = 0;
     private final int id;
 
     @NotNull
