@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.time.format.DateTimeFormatter;
 
 /**
  *  Landon Wiedenman
@@ -30,7 +31,9 @@ public class UserController {
     public String singleUser(Model model, @PathVariable int id) {
 
         User user = UserData.getById(id);
+        String formattedDate = user.getCreationDate().format(DateTimeFormatter.ofPattern("MMMM dd,  yyyy"));
         model.addAttribute("user", user);
+        model.addAttribute("formattedDate", formattedDate);
         return "user/single";
     }
 

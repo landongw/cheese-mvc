@@ -12,6 +12,7 @@
         </p>
         <h3 th:text="${user.getUsername()}"></h3>
         <h5 th:text="${user.getEmail()}"></h5>
+        <h6 th:text="${formattedDate}"></h6>
     </div>
 </section>
 <footer th:replace="fragments :: footer"></footer>

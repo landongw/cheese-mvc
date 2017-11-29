@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.Email;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 public class User {
     private static int nextId = 0;
@@ -26,15 +27,21 @@ public class User {
     @Size(min=3, message="Password must be between 3 and 20 characters long.")
     private String verify;
 
+    private final LocalDate creationDate;
+
+    public static LocalDate date = LocalDate.now();
+
     public User(String username, String email, String password, String verify) {
         this.id = nextId++;
         this.username = username;
         this.email = email;
         this.password = password;
         this.verify = verify;
+        this.creationDate = date;
     }
 
     public User() {
+        this.creationDate = date;
         this.id = nextId++;
     }
 
@@ -80,6 +87,11 @@ public class User {
 
     public void setVerify(String verify) {
         this.verify = verify;
+    }
+
+    public LocalDate getCreationDate() {
+
+        return creationDate;
     }
 
     public boolean isPasswordVerifyValid() {
