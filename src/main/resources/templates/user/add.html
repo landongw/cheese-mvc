@@ -8,13 +8,13 @@
             <h1 th:text="${title}">Default Title</h1>
             <form method="POST" th:object="${user}">
                 <div>
-                    <label th:for="username">UserName: </label>
+                    <label th:for="username">Username: </label>
                     <input th:field="*{username}"/>
                     <span th:errors="*{username}" class="error"></span>
                 </div>
                 <div>
                     <label th:for="email">Email: </label>
-                    <input th:field="*{email}"/>
+                    <input th:type="email" th:field="*{email}"/>
                     <span th:errors="*{email}" class="error"></span>
                 </div>
                 <div>
@@ -23,13 +23,13 @@
                     <span th:errors="*{password}" class="error"></span>
                 </div>
                 <div>
-                    <label th:for="password">Verify Password: </label>
-                    <input th:type="password" th:field="*{password}"/>
-                    <span th:errors="*{password}" class="error"></span>
+                    <label th:for="verify">Verify Password: </label>
+                    <input th:type="password" th:field="*{verify}"/>
+                    <span th:errors="*{verify}" class="error"></span>
                 </div>
                 <br />
                 <br />
-                <button type="submit" value="Add Cheese">Add Cheese</button>
+                <button type="submit" value="Add User">Add User</button>
             </form>
             <div style="height: 50px;"></div>
         </div>

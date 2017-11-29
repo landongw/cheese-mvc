@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *  Landon Wiedenman
  */
 @Controller
-@RequestMapping("cheese")  // Specifies that every following controller will be prepended with this
+@RequestMapping("cheese")
 public class CheeseController {
 
     // Request path: /cheese
@@ -26,7 +26,7 @@ public class CheeseController {
         model.addAttribute("cheeses", CheeseData.getAll());
         model.addAttribute("title", "My Cheeses");
 
-        return "cheese/index";  // Points to the template by name
+        return "cheese/index";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)  // Displays form
@@ -50,7 +50,7 @@ public class CheeseController {
             return "cheese/add";
         }
 
-        CheeseData.put(newCheese.getId(), newCheese); // Adds cheese passed in from /cheese/add form
+        CheeseData.put(newCheese.getId(), newCheese);
         return "redirect:"; // Redirects to root (/cheese)
     }
 

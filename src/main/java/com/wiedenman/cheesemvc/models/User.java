@@ -1,17 +1,37 @@
 package com.wiedenman.cheesemvc.models;
 
+import org.hibernate.validator.constraints.Email;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class User {
     private static int nextId = 1;
     private final int id;
+
+    @NotNull
+    @Size(min=3, message="Username must be between 3 and 20 characters long.")
     private String username;
+
+    @NotNull
+    @Size(min=1, message="Valid email required.")
+    @Email
     private String email;
+
+    @NotNull
+    @Size(min=3, message="Password must be between 3 and 20 characters long.")
     private String password;
 
-    public User(int id, String username, String email, String password) {
+    @NotNull
+    @Size(min=3, message="Password must be between 3 and 20 characters long.")
+    private String verify;
+
+    public User(String username, String email, String password, String verify) {
         this.id = nextId++;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.verify = verify;
     }
 
     public User() {
@@ -40,5 +60,32 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        User.nextId = nextId++;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getVerify() {
+        return verify;
+    }
+
+    public void setVerify(String verify) {
+        this.verify = verify;
+    }
+
+    public boolean isPasswordVerifyValid() {
+        if (password != null && verify != null && !password.equals(verify)) {
+            return true;
+        }
+        return false;
     }
 }
