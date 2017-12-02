@@ -49,23 +49,9 @@ public class UserController {
     public String processAddUser(@ModelAttribute @Valid User newUser,
                                  Errors errors, Model model) {
 
-        String password = newUser.getPassword();
-        String verify = newUser.getVerify();
         model.addAttribute("title", "Add User");
 
-        // TODO: refactor with annotations
-        if (password == null || password.length() == 0) {
-            model.addAttribute("passnullerror", "Required! ");
-            if (verify == null || verify.length() == 0) {
-                model.addAttribute("verifynullerror", "Required! ");
-            } return "user/add";
-
-        } if (!password.equals(verify)) {
-            model.addAttribute("passmatcherror", "Passwords must match. ");
-            newUser.setPassword("");  // Redundant (good) as the password element in html also removes it
-            return "user/add";
-
-        } else if (errors.hasErrors()) {
+        if (errors.hasErrors()) {
             return "user/add";
 
         }

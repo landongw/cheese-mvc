@@ -25,10 +25,8 @@
                 </div>
                 <div>
                     <label th:for="verify">Verify Password: </label>
-                    <input th:type="password" th:field="*{verify}"/>
-                    <span th:errors="*{verify}" class="error"></span>
-                    <span th:text="${verifynullerror}" class="error"></span>
-                    <span th:text="${passmatcherror}" class="error"></span>
+                    <input th:type="password" th:field="*{verifyPassword}"/>
+                    <span th:errors="*{verifyPassword}" class="error"></span>
                 </div>
                 <br />
                 <br />

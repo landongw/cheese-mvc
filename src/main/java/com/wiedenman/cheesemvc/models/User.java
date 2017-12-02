@@ -22,26 +22,34 @@ public class User {
     @Size(min=6, message="Password must be at least 6 characters long. ")
     private String password;
 
-    @NotNull
-    @Size(min=5, max=20, message="Password must be between 5 and 20 characters long. ")
-    private String verify;
+    @NotNull(message="Passwords do not match. ")
+    @Size(min=6, message="Passwords do not match. ")
+    private String verifyPassword;
 
     private final LocalDate creationDate;
 
     public static LocalDate date = LocalDate.now();
 
-    public User(String username, String email, String password, String verify) {
+    public User(String username, String email, String password, String verifyPassword) {
         this.id = nextId++;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.verify = verify;
+        this.verifyPassword = verifyPassword;
         this.creationDate = date;
     }
 
     public User() {
         this.creationDate = date;
         this.id = nextId++;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        User.nextId = nextId++;
     }
 
     public String getUsername() {
@@ -66,37 +74,35 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public static int getNextId() {
-        return nextId;
-    }
-
-    public static void setNextId(int nextId) {
-        User.nextId = nextId++;
+        checkPassword();
     }
 
     public int getId() {
         return id;
     }
 
-    public String getVerify() {
-        return verify;
+    public String getVerifyPassword() {
+        return verifyPassword;
     }
 
-    public void setVerify(String verify) {
-        this.verify = verify;
+    public void setVerifyPassword(String verifyPassword) {
+        this.verifyPassword = verifyPassword;
+        checkPassword();
+
+    }
+
+
+
+    private void checkPassword() {
+    /**If apassword and averifyPassword are not null and they do not match, reset averifyPassword to null.*/
+
+        if (password != null && verifyPassword != null && !password.equals(verifyPassword)) {
+            verifyPassword = null;
+        }
     }
 
     public LocalDate getCreationDate() {
 
         return creationDate;
-    }
-
-    public boolean isPasswordVerifyValid() {
-        if (password != null && verify != null && !password.equals(verify)) {
-            return true;
-        }
-        return false;
     }
 }
