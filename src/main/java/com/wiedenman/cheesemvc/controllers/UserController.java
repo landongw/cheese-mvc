@@ -53,6 +53,7 @@ public class UserController {
         String verify = newUser.getVerify();
         model.addAttribute("title", "Add User");
 
+        // TODO: refactor with annotations
         if (password == null || password.length() == 0) {
             model.addAttribute("passnullerror", "Required! ");
             if (verify == null || verify.length() == 0) {
