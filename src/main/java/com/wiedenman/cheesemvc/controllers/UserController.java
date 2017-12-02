@@ -46,14 +46,26 @@ public class UserController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST) // Process form
-    public String processAddUser(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
+    public String processAddUser(@ModelAttribute @Valid User newUser,
+                                 Errors errors, Model model) {
 
-//        String username = newUser.getUsername();
-//        String email = newUser.getEmail();
-// TODO: Complete password validation -- matching password/verify/password strength
-        if (errors.hasErrors()) {
-            model.addAttribute("title", "Add User");
+        String username = newUser.getUsername();
+        String verify = newUser.getVerify();
+        model.addAttribute("title", "Add User");
+
+        if (username == null || username.length() == 0) {
+            model.addAttribute("passnullerror", "Required! ");
+            if (verify == null || verify.length() == 0) {
+                model.addAttribute("verifynullerror", "Required! ");
+            } return "user/add";
+
+        } if (!username.equals(verify)) {
+            model.addAttribute("passmatcherror", "Passwords must match. ");
             return "user/add";
+
+        } else if (errors.hasErrors()) {
+            return "user/add";
+
         }
 
         UserData.put(newUser.getId(), newUser);

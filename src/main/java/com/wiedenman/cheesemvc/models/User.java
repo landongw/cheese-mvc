@@ -11,20 +11,19 @@ public class User {
     private final int id;
 
     @NotNull
-    @Size(min=3, message="Username must be between 3 and 20 characters long.")
+    @Size(min=5, max=20, message="Username must be between 5 and 20 characters long. ")
     private String username;
 
-    @NotNull
-    @Size(min=1, message="Valid email required.")
+    @Size(min=1, message="Valid email required. ")
     @Email
     private String email;
 
     @NotNull
-    @Size(min=3, message="Password must be between 3 and 20 characters long.")
+    @Size(min=6, message="Password must be at least 6 characters long. ")
     private String password;
 
     @NotNull
-    @Size(min=3, message="Password must be between 3 and 20 characters long.")
+    @Size(min=5, max=20, message="Password must be between 5 and 20 characters long. ")
     private String verify;
 
     private final LocalDate creationDate;

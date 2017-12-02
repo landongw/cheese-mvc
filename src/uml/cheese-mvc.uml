@@ -3,87 +3,93 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="662.25" y="0.0">com.wiedenman.cheesemvc.models.User</node>
-    <node x="824.0" y="324.0">com.wiedenman.cheesemvc.models.UserData</node>
-    <node x="64.75" y="492.0">com.wiedenman.cheesemvc.models.CheeseData</node>
-    <node x="462.0" y="336.0">com.wiedenman.cheesemvc.controllers.UserController</node>
+    <node x="529.725" y="0.0">com.wiedenman.cheesemvc.models.User</node>
+    <node x="462.0" y="368.0">com.wiedenman.cheesemvc.models.UserData</node>
+    <node x="64.75000000000003" y="492.0">com.wiedenman.cheesemvc.models.CheeseData</node>
+    <node x="553.225" y="536.0">com.wiedenman.cheesemvc.controllers.UserController</node>
     <node x="0.0" y="0.0">com.wiedenman.cheesemvc.models.CheeseRating</node>
+    <node x="7.749999999999972" y="682.0">com.wiedenman.cheesemvc.controllers.CheeseController</node>
     <node x="0.0" y="910.0">com.wiedenman.cheesemvc.CheeseMvcApplication</node>
-    <node x="7.749999999999943" y="682.0">com.wiedenman.cheesemvc.controllers.CheeseController</node>
     <node x="60.25" y="235.0">com.wiedenman.cheesemvc.models.Cheese</node>
     <node x="223.0" y="22.0">com.wiedenman.cheesemvc.models.CheeseType</node>
   </nodes>
   <notes />
   <edges>
     <edge source="com.wiedenman.cheesemvc.controllers.CheeseController" target="com.wiedenman.cheesemvc.models.CheeseType">
-      <point x="162.40000000000003" y="-91.5" />
+      <point x="162.39999999999998" y="-91.5" />
       <point x="373.15" y="662.0" />
       <point x="400.92121212121214" y="662.0" />
       <point x="400.92121212121214" y="210.0" />
       <point x="384.6666666666667" y="210.0" />
-      <point x="64.66666666666669" y="70.5" />
+      <point x="64.6666666666667" y="70.5" />
     </edge>
     <edge source="com.wiedenman.cheesemvc.controllers.UserController" target="com.wiedenman.cheesemvc.models.User">
-      <point x="-85.5" y="-36.5" />
-      <point x="547.5" y="299.0" />
-      <point x="697.625" y="299.0" />
-      <point x="-106.125" y="137.0" />
+      <point x="114.0" y="-58.5" />
+      <point x="838.225" y="511.0" />
+      <point x="754.5" y="511.0" />
+      <point x="754.5" y="343.0" />
+      <point x="777.35" y="343.0" />
+      <point x="106.125" y="159.0" />
     </edge>
     <edge source="com.wiedenman.cheesemvc.models.Cheese" target="com.wiedenman.cheesemvc.models.CheeseType">
-      <point x="112.875" y="-103.5" />
-      <point x="323.625" y="210.0" />
-      <point x="320.0" y="210.0" />
-      <point x="0.0" y="70.5" />
+      <point x="37.625" y="-103.5" />
+      <point x="248.375" y="210.0" />
+      <point x="255.33333333333331" y="210.0" />
+      <point x="-64.66666666666669" y="70.5" />
     </edge>
     <edge source="com.wiedenman.cheesemvc.controllers.CheeseController" target="com.wiedenman.cheesemvc.models.CheeseData">
       <point x="2.8421709430404007E-14" y="-91.5" />
       <point x="0.0" y="70.0" />
     </edge>
     <edge source="com.wiedenman.cheesemvc.controllers.CheeseController" target="com.wiedenman.cheesemvc.models.Cheese">
-      <point x="-81.19999999999993" y="-91.5" />
-      <point x="129.55" y="652.0" />
-      <point x="39.8125" y="652.0" />
-      <point x="39.8125" y="467.0" />
-      <point x="97.875" y="467.0" />
-      <point x="-112.875" y="103.5" />
+      <point x="81.20000000000005" y="-91.5" />
+      <point x="291.95000000000005" y="652.0" />
+      <point x="381.6875" y="652.0" />
+      <point x="381.6875" y="467.0" />
+      <point x="323.625" y="467.0" />
+      <point x="112.875" y="103.5" />
     </edge>
     <edge source="com.wiedenman.cheesemvc.models.UserData" target="com.wiedenman.cheesemvc.models.User">
-      <point x="65.0" y="-48.5" />
-      <point x="1019.0" y="299.0" />
-      <point x="909.875" y="299.0" />
-      <point x="106.125" y="137.0" />
+      <point x="67.75" y="-59.0" />
+      <point x="665.25" y="343.0" />
+      <point x="635.85" y="343.0" />
+      <point x="-35.375" y="159.0" />
+    </edge>
+    <edge source="com.wiedenman.cheesemvc.controllers.UserController" target="com.wiedenman.cheesemvc.models.UserData">
+      <point x="-114.0" y="-58.5" />
+      <point x="610.225" y="511.0" />
+      <point x="597.5" y="511.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="com.wiedenman.cheesemvc.models.Cheese" target="com.wiedenman.cheesemvc.models.CheeseRating">
+      <point x="-37.625" y="-103.5" />
+      <point x="173.125" y="210.0" />
+      <point x="169.16666666666669" y="210.0" />
+      <point x="67.66666666666669" y="92.5" />
     </edge>
     <edge source="com.wiedenman.cheesemvc.controllers.CheeseController" target="com.wiedenman.cheesemvc.models.CheeseRating">
       <point x="-162.39999999999992" y="-91.5" />
-      <point x="48.35000000000002" y="662.0" />
+      <point x="48.35000000000005" y="662.0" />
       <point x="21.396969696969677" y="662.0" />
       <point x="21.396969696969677" y="210.0" />
       <point x="33.833333333333314" y="210.0" />
       <point x="-67.66666666666669" y="92.5" />
     </edge>
-    <edge source="com.wiedenman.cheesemvc.models.Cheese" target="com.wiedenman.cheesemvc.models.CheeseRating">
-      <point x="-112.875" y="-103.5" />
-      <point x="97.875" y="210.0" />
-      <point x="101.50000000000001" y="210.0" />
-      <point x="1.4210854715202004E-14" y="92.5" />
-    </edge>
     <edge source="com.wiedenman.cheesemvc.models.CheeseData" target="com.wiedenman.cheesemvc.models.Cheese">
-      <point x="-73.0" y="-70.0" />
-      <point x="137.75" y="467.0" />
-      <point x="173.125" y="467.0" />
-      <point x="-37.625" y="103.5" />
+      <point x="72.99999999999997" y="-70.0" />
+      <point x="283.75" y="467.0" />
+      <point x="248.375" y="467.0" />
+      <point x="37.625" y="103.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7799287678643886" x="733.6014589932713" y="428.20144396402225" />
-  <SelectedNodes>
-    <node>com.wiedenman.cheesemvc.models.UserData</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.6934356940789376" x="529.8681426655563" y="478.50155482723426" />
+  <SelectedNodes />
   <Categories>
-    <Category>Fields</Category>
     <Category>Inner Classes</Category>
-    <Category>Constructors</Category>
     <Category>Properties</Category>
     <Category>Methods</Category>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
