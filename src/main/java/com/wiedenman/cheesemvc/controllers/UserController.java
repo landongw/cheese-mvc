@@ -15,6 +15,9 @@ import java.time.format.DateTimeFormatter;
 /**
  *  Landon Wiedenman
  */
+
+// TODO: Make User class persistent
+
 @Controller
 @RequestMapping("user")
 public class UserController {

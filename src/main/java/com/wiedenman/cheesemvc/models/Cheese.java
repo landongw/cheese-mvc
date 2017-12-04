@@ -1,12 +1,17 @@
 package com.wiedenman.cheesemvc.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Cheese {
 
+    @Id
+    @GeneratedValue
     private int id;
-    private static int nextCheeseId = 1;
 
     @NotNull
     @Size(min=3, max=20, message = "Name must be between 3 and 20 characters.")
@@ -23,22 +28,15 @@ public class Cheese {
     private CheeseRating rating;
 
     public Cheese(String name, String description, CheeseRating rating) {
-        this();
         this.name = name;
         this.description = description;
         this.rating = rating;
     }
 
-    public Cheese() {
-        id = nextCheeseId++;
-    }
+    public Cheese() { }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

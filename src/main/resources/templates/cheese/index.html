@@ -11,13 +11,13 @@
                 No cheese found.&nbsp;&nbsp;:(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/cheese/add">Add some cheese now.</a>
             </p>
             <ul th:each="cheese : ${cheeses}">
-                <h3 th:text="${cheese.value.name} + '&nbsp;&nbsp;|&nbsp;&nbsp;' + ${cheese.value.rating.stars}"></h3>
-                <span th:text="${cheese.value.type.name}" style="font-size: .8em;"></span>
+                <h3 th:text="${cheese.name} + '&nbsp;&nbsp;|&nbsp;&nbsp;' + ${cheese.rating.stars}"></h3>
+                <span th:text="${cheese.type.name}" style="font-size: .8em;"></span>
                 <span style="font-size: .8em;">&nbsp; Cheese</span><br/>
 
-                <span th:text="${cheese.value.description}" class="cheese-description"></span><br/>
+                <span th:text="${cheese.description}" class="cheese-description"></span><br/>
 
-                <a th:href="@{'/cheese/edit/' + ${cheese.key}}" class="edit">edit</a>
+                <a th:href="@{'/cheese/edit/' + ${cheese.id}}" class="edit">edit</a>
                 <hr/>
             </ul>
         </div>
