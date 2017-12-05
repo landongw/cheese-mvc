@@ -91,10 +91,8 @@ public class User {
 
     }
 
-
-
     private void checkPassword() {
-    /**If apassword and averifyPassword are not null and they do not match, reset averifyPassword to null.*/
+    /**If password and verifyPassword are not null and they do not match, reset verifyPassword to null.*/
 
         if (password != null && verifyPassword != null && !password.equals(verifyPassword)) {
             verifyPassword = null;
