@@ -10,14 +10,14 @@
         <h1><span>Edit Cheese:  </span><span th:text="${cheese.getName()}"></span><span> (id=</span><span th:text="${cheese.getId()}"></span><span>)</span></h1>
         <form method="POST" action="/cheese/edit" th:object="${cheese}">
             <div>
-                <input type="hidden" name="id" th:value="${cheese.getId()}"/>
+                <input type="hidden" name="id" th:value="*{id}"/>
                 <label th:for="name">Cheese Name: </label>
-                <input th:field="*{name}" th:value="${cheese.getName()}"/>
+                <input th:field="*{name}" th:value="*{name}"/>
                 <span th:errors="*{name}" class="error"></span>
             </div>
             <div>
                 <label th:for="description">Description: </label>
-                <input th:field="*{description}" th:value="${cheese.getDescription()}"/>
+                <input th:field="*{description}" th:value="*{description}"/>
                 <span th:errors="*{description}" class="error"></span>
             </div>
             <div>
